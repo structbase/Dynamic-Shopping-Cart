@@ -225,7 +225,7 @@ I used JavaScript’s `createElement()` and `appendChild()` methods to build eac
 
 ### 💰 What steps did you take to ensure accurate updates to the total price?
 
-After every cart modification, I recalculated subtotal, tax (10%), and total using array reduction. This ensured real-time updates across all UI sections (desktop sidebar and offcanvas).
+After every cart modification, I recalculated subtotal, tax (10%), and total using array reduction. This ensured real-time updates across all UI sections desktop sidebar .
 
 ---
 
@@ -235,6 +235,8 @@ Before creating any new cart item, I validated both input fields:
 
 -   Product name must not be empty.
 -   Price must be a positive number.
+-   Name(poduct) can have multiple prices.
+-   Name and product the same quantity added.
 
 If validation failed, an alert was displayed and no item was added.
 
@@ -279,4 +281,4 @@ Preliminary testing suggests multiple contributing issues that may be both **DOM
 ### 📱 Mobile Layout
 
 ![Mobile Screenshot](./screenshots/mobile-preview.png)
-![Mobile Screenshot Cart](./assets/mobile-preview.png)
+![Mobile Screenshot Cart](./screenshots/mobile-preview-cart.png)
