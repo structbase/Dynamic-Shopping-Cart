@@ -2,7 +2,7 @@ const cardContainer = document.getElementById("card-container");
 const addProduct = document.getElementById("add-product");
 const productNameInput = document.getElementById("product-name");
 const productPriceInput = document.getElementById("product-price");
-const cartItem = document.getElementById("cart-items");
+const cartItemsContainer = document.getElementById("cart-items");
 
 let totalPrice = 0;
 
@@ -29,12 +29,15 @@ let cart = [];
 
 function addToCart(name, price) {
     // check if the item and price being added already exsit as set
-    const existingItem = cart.find((item) => item.name === name && item.price === price);
+    const existingItem = cart.find(
+        (item) => item.name === name && item.price === price
+    );
 
-    if (existingItem) { // if they do 
+    if (existingItem) {
+        // if they do
         existingItem.quantity += 1; // increase quantity
     } else {
-        cart.push({ name, price, quantity: 1 }); // if not added need item 
+        cart.push({ name, price, quantity: 1 }); // if not added need item
     }
 }
 
