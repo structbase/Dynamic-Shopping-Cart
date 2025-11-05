@@ -282,3 +282,45 @@ Preliminary testing suggests multiple contributing issues that may be both **DOM
 
 ![Mobile Screenshot](./screenshots/mobile-preview.png)
 ![Mobile Screenshot Cart](./screenshots/mobile-preview-cart.png)
+
+
+---
+
+## 🪜 How to Run Locally
+
+1. Clone the repository
+
+   ```bash
+   git clone <https://github.com/structbase/Dynamic-Shopping-Cart>
+   ```
+
+2. Navigate into the project folder
+
+   ```bash
+   cd Dynamic-Shopping-Cart
+   ```
+
+3. Open the project in your browser
+
+   ```bash
+   open index.html
+   ```
+
+---
+
+## 🏁 Credits & Resources
+
+* [Bootstrap Examples – Shopping Cart Design](https://bootstrapexamples.com/@kemaya/shopping-cart-design-using-bootstrap-5)
+* [Bootstrap 5 Official Docs](https://getbootstrap.com/)
+* [MDN Web Docs – Event Propagation](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Events#event_propagation)
+* [JavaScript.info – Event Delegation](https://javascript.info/event-delegation)
+* [W3Schools JavaScript Tutorial](https://www.w3schools.com/js/default.asp)
+* [Google](https://www.google.com/)
+
+---
+
+## ✍️ Author
+
+Developed by **[Abenezer]**
+
+> Aspiring junior developer 
