@@ -17,9 +17,26 @@
         <title>Dynamic Shopping Cart</title>
     </head>
     <body>
-        <header class="p-3 bg-light border-bottom">
-            <h1 class="text-center fw-bolder">Dynamic Shopping Cart</h1>
+        <header class="p-3 bg-light border-bottom sticky-top">
+            <div
+                class="container-fluid d-flex justify-content-between align-items-center"
+            >
+                <h1 class="fw-bolder mb-0 fs-3">Dynamic Shopping Cart</h1>
+
+                <!-- Cart Button: Visible only  (d-lg-none) -->
+                <button
+                    class="btn btn-primary d-lg-none"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasSidebar"
+                    aria-controls="offcanvasSidebar"
+                    aria-label="Open Cart"
+                >
+                    <i class="bi bi-cart"></i> Cart
+                </button>
+            </div>
         </header>
+
         <div class="container-fluid **gx-0**">
             <div class="row **gx-0**">
                 <main class="col-lg-9 p-3">
