@@ -24,6 +24,9 @@ let preset = [
     { name: "Yogurt", price: 1.19, image: "./assets/yogurt.png" },
 ];
 
+let cartItemName = [];
+let cartItemPrice = [];
+
 // Render cards
 preset.forEach((item) => {
     const cardHTML = `
@@ -56,7 +59,12 @@ cardContainer.addEventListener("click", (e) => {
         const name = e.target.dataset.name;
         const price = parseFloat(e.target.dataset.price);
 
-        console.log(`Added to cart: ${name}  $${price.toFixed(2)}`);
+        console.log(
+            `Added to cart via preset: ${name}  $${price.toFixed(2)}`
+        );
+
+        cartItemName.push(name);
+        cartItemPrice.push(price);
     }
 });
 
@@ -65,8 +73,21 @@ addProduct.addEventListener("click", () => {
     const name = productNameInput.value.trim();
     const price = parseFloat(productPriceInput.value);
 
+    if (!name || isNaN(price)) {
+        alert(
+            "Please enter a valid product and price(e.g.,name: Chicken,  price: 4.99)."
+        );
+        return;
+    }
 
-})
+    console.log(`Added to cart via userinput: ${name}  $${price.toFixed(2)}`);
+    cartItemName.push(name);
+    cartItemPrice.push(price);
+
+    // Clear inputs
+    productNameInput.value = "";
+    productPriceInput.value = "";
+});
 
 // Function to update the total price
 function updateTotalPrice(amount) {
