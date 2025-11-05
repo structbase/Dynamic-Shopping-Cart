@@ -28,11 +28,13 @@ let preset = [
 let cart = [];
 
 function addToCart(name, price) {
-    const existingItem = cart.find((item) => item.name === name);
-    if (existingItem) {
+    // check if the item and price being added already exsit as set
+    const existingItem = cart.find((item) => item.name === name && item.price === price);
+
+    if (existingItem) { // if they do 
         existingItem.quantity += 1; // increase quantity
     } else {
-        cart.push({ name, price, quantity: 1 });
+        cart.push({ name, price, quantity: 1 }); // if not added need item 
     }
 }
 
@@ -70,7 +72,7 @@ cardContainer.addEventListener("click", (e) => {
         const price = parseFloat(e.target.dataset.price);
 
         console.log(`Added to cart via preset: ${name}  $${price.toFixed(2)}`);
-        addToCart(name, price)
+        addToCart(name, price);
     }
 });
 
