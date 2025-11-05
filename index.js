@@ -2,7 +2,7 @@ const cardContainer = document.getElementById("card-container");
 const addProduct = document.getElementById("add-product");
 const productNameInput = document.getElementById("product-name");
 const productPriceInput = document.getElementById("product-price");
-const cartItem = document.getElementById("cart-items")
+const cartItem = document.getElementById("cart-items");
 
 let totalPrice = 0;
 
@@ -27,6 +27,14 @@ let preset = [
 
 let cart = [];
 
+function addToCart(name, price) {
+    const existingItem = cart.find((item) => item.name === name);
+    if (existingItem) {
+        existingItem.quantity += 1; // increase quantity
+    } else {
+        cart.push({ name, price, quantity: 1 });
+    }
+}
 
 // Render cards
 preset.forEach((item) => {
@@ -52,6 +60,7 @@ preset.forEach((item) => {
     `;
     cardContainer.innerHTML += cardHTML;
 });
+
 // cardContainer event delegation on the parent div
 cardContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("add-to-cart")) {
@@ -60,12 +69,8 @@ cardContainer.addEventListener("click", (e) => {
         const name = e.target.dataset.name;
         const price = parseFloat(e.target.dataset.price);
 
-        console.log(
-            `Added to cart via preset: ${name}  $${price.toFixed(2)}`
-        );
-
-        cartItemName.push(name);
-        cartItemPrice.push(price);
+        console.log(`Added to cart via preset: ${name}  $${price.toFixed(2)}`);
+        addToCart(name, price)
     }
 });
 
@@ -82,8 +87,7 @@ addProduct.addEventListener("click", () => {
     }
 
     console.log(`Added to cart via userinput: ${name}  $${price.toFixed(2)}`);
-    cartItemName.push(name);
-    cartItemPrice.push(price);
+    addToCart(name, price);
 
     // Clear inputs
     productNameInput.value = "";
