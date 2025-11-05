@@ -4,23 +4,26 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="styles.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"
+        />
         <title>Dynamic Shopping Cart</title>
     </head>
     <body>
-        <h1>Dynamic Shopping Cart</h1>
-        <div id="product-container">
-            <input type="text" id="product-name" placeholder="Product Name" />
-            <input
-                type="number"
-                id="product-price"
-                placeholder="Product Price"
-            />
-            <button id="add-product">Add Product</button>
+        <div class="container-xxl bd-gutter mt-3 my-md-4 bd-layout">
+            <main class="bd-main order-1">
+                <div id="card-container" class="d-flex flex-wrap gap-3"></div>
+            </main>
+            <aside class="bd-sidebar">
+                <div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </aside>
         </div>
-        <ul id="cart"></ul>
-        <h3>Total: $<span id="total-price">0</span></h3>
-
-        <script src="script.js"></script>
-        <source src="./assets/apples.png">
+        <script src="./index.js"></script>
     </body>
 </html>
