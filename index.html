@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +16,7 @@
         />
         <title>Dynamic Shopping Cart</title>
     </head>
-    <body>
+    <body class="d-flex flex-column h-100">
         <header class="p-3 bg-light border-bottom sticky-top">
             <div
                 class="container-fluid d-flex justify-content-between align-items-center"
@@ -155,8 +155,8 @@
         >
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasSidebarLabel">
-                    Cart
-                </h5>
+                    Cart <i class="bi bi-cart3"></i>
+                </h5> 
                 <button
                     type="button"
                     class="btn-close"
@@ -165,6 +165,7 @@
                 ></button>
             </div>
             <div class="offcanvas-body">
+
                 <div class="card cart-summary">
                     <div class="card-body">
                         <h5 class="card-title mb-4">Order Summary</h5>
