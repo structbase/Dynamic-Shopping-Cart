@@ -326,6 +326,6 @@ Preliminary testing suggests multiple contributing issues that may be both **DOM
 
 ## ✍️ Author
 
-Developed by **[Abenezer]**
+Developed by **Abenezer**
 
 > Aspiring junior developer 
