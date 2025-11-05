@@ -2,8 +2,8 @@ const cardContainer = document.getElementById("card-container");
 const addProduct = document.getElementById("add-product");
 const productNameInput = document.getElementById("product-name");
 const productPriceInput = document.getElementById("product-price");
-const cartContainer = document.getElementById("cart-items");
-
+const cartContainerFixed = document.getElementById("cart-items-fixed");
+const cartContainerOffcanvas = document.getElementById("cart-items-offcanvas");
 let totalPrice = 0;
 
 let preset = [
@@ -26,9 +26,9 @@ let preset = [
 ];
 
 let cart = [];
-
-function renderCartItem(item) {
-    const cartItemHTML = `
+// generates the one cart item per object
+function generateCartItemHTML(item) {
+    return `
         <div class="row cart-item g-1 align-items-center mb-2 p-2 border rounded" 
             data-name="${item.name}" 
             data-price="${item.price}">
@@ -61,17 +61,21 @@ function renderCartItem(item) {
             </div>
         </div>
     `;
-
-    cartContainer.innerHTML += cartItemHTML;
-    updateCartSummary();
-
 }
 
+// render all cartitem for both DOMS, (canvas and main)
 function renderCart() {
-    cartContainer.innerHTML = "";
-    cart.forEach(renderCartItem);
-}
+    let cartHTML = "";
+    cart.forEach((item) => {
+        cartHTML += generateCartItemHTML(item);
+    });
 
+    // update both fixed(normal screen) and offcanvas containers
+    if (cartContainerFixed) cartContainerFixed.innerHTML = cartHTML;
+    if (cartContainerOffcanvas) cartContainerOffcanvas.innerHTML = cartHTML;
+
+    updateCartSummary();
+}
 function addToCart(name, price) {
     // check if the item and price being added already exsit as set
     const existingItem = cart.find(
