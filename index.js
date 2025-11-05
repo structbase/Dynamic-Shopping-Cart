@@ -1,4 +1,7 @@
 const cardContainer = document.getElementById("card-container");
+const addProduct = document.getElementById("add-product");
+const productNameInput = document.getElementById("product-name");
+const productPriceInput = document.getElementById("product-price");
 
 let totalPrice = 0;
 
@@ -56,6 +59,14 @@ cardContainer.addEventListener("click", (e) => {
         console.log(`Added to cart: ${name}  $${price.toFixed(2)}`);
     }
 });
+
+// event listener for your input item
+addProduct.addEventListener("click", () => {
+    const name = productNameInput.value.trim();
+    const price = parseFloat(productPriceInput.value);
+
+
+})
 
 // Function to update the total price
 function updateTotalPrice(amount) {
