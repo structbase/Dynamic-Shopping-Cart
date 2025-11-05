@@ -2,7 +2,7 @@ const cardContainer = document.getElementById("card-container");
 const addProduct = document.getElementById("add-product");
 const productNameInput = document.getElementById("product-name");
 const productPriceInput = document.getElementById("product-price");
-const cartItemsContainer = document.getElementById("cart-items");
+const cartContainer = document.getElementById("cart-items");
 
 let totalPrice = 0;
 
@@ -27,6 +27,49 @@ let preset = [
 
 let cart = [];
 
+function renderCartItem(item) {
+    const cartItemHTML = `
+        <div class="row cart-item g-1 align-items-center mb-2 p-2 border rounded" 
+            data-name="${item.name}" 
+            data-price="${item.price}">
+            
+            <div class="col-5">
+                <h6 class="mb-0 text-truncate">${item.name}</h6>
+            </div>
+
+            <div class="col-3">
+                <div class="input-group input-group-sm">
+                    <button class="btn btn-outline-secondary decrease" type="button">-</button>
+                    <input
+                        type="text"
+                        class="form-control text-center quantity-input px-1"
+                        value="${item.quantity}"
+                        style="width: 35px"
+                        readonly
+                    />
+                    <button class="btn btn-outline-secondary increase" type="button">+</button>
+                </div>
+            </div>
+
+            <div class="col-4 d-flex align-items-center justify-content-evenly">
+                <span class="fw-bold me-2 small">$${(
+                    item.price * item.quantity
+                ).toFixed(2)}</span>
+                <button class="btn btn-sm btn-outline-danger remove">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </div>
+    `;
+
+    cartContainer.innerHTML += cartItemHTML;
+}
+
+function renderCart() {
+    cartContainer.innerHTML = "";
+    cart.forEach(renderCartItem);
+}
+
 function addToCart(name, price) {
     // check if the item and price being added already exsit as set
     const existingItem = cart.find(
@@ -39,6 +82,8 @@ function addToCart(name, price) {
     } else {
         cart.push({ name, price, quantity: 1 }); // if not added need item
     }
+
+    renderCart();
 }
 
 // Render cards
