@@ -24,16 +24,16 @@ let preset = [
 preset.forEach((item) => {
     const cardHTML = `
     
-    <div class="card" style="width: 10rem;">
-        <img src="${item.image}" class="card-img-top" alt="${item.name}" />
-        <div class="card-body">
-            <h5 class="card-title">${item.name}</h5>
-            <p class="card-text">Price: $${item.price.toFixed(2)}</p>
-            <a href="#" class="btn btn-primary">Add to cart</a>
+        <div class="card" style="width: 10rem;">
+            <img src="${item.image}" class="card-img-top" alt="${item.name}" />
+            <div class="card-body">
+                <h5 class="card-title">${item.name}</h5>
+                <p class="card-text">Price: $${item.price.toFixed(2)}</p>
+                <a href="#" class="btn btn-primary">Add to cart</a>
+            </div>
         </div>
-    </div>
     `;
-
+    
     // Add the card to the container
     cardContainer.innerHTML += cardHTML;
 });

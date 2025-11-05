@@ -13,16 +13,65 @@
         <title>Dynamic Shopping Cart</title>
     </head>
     <body>
-        <div class="container-xxl bd-gutter mt-3 my-md-4 bd-layout">
-            <main class="bd-main order-1">
-                <div id="card-container" class="d-flex flex-wrap gap-3"></div>
-            </main>
-            <aside class="bd-sidebar">
-                <div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </aside>
+        <div class="container-xxl mt-3 my-md-4">
+            <div class="row d-flex just">
+                <h1>Dynamic Shopping Cart</h1>
+                <main class="col-md-9">
+                    <div
+                        id="card-container"
+                        class="d-flex flex-wrap gap-3"
+                    ></div>
+
+                    <div class="container p-2 w-75">
+                        <div
+                            class="row d-flex justify-content-center align-items-center"
+                        >
+                            <div class="col-md-5 mb-3">
+                                <div class="form-floating">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="product-name"
+                                        placeholder="Product Name"
+                                        aria-required="true"
+                                    />
+                                    <label for="product-name"
+                                        >Product Name</label
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <div class="form-floating">
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        id="product-price"
+                                        placeholder="Product Price"
+                                        aria-required="true"
+                                    />
+                                    <label for="product-price"
+                                        >Product Price</label
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="col-12 px-0 text-center">
+                                <button
+                                    id="add-product"
+                                    class="btn btn-primary"
+                                >
+                                    Add Product
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <aside class="col-md-3 bg-light p-3 border-start">
+                    <h2>Cart</h2>
+                    <div class="offcanvas-lg offcanvas-start"></div>
+                </aside>
+            </div>
         </div>
         <script src="./index.js"></script>
     </body>
