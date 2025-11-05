@@ -2,6 +2,7 @@ const cardContainer = document.getElementById("card-container");
 const addProduct = document.getElementById("add-product");
 const productNameInput = document.getElementById("product-name");
 const productPriceInput = document.getElementById("product-price");
+const cartItem = document.getElementById("cart-items")
 
 let totalPrice = 0;
 
@@ -24,8 +25,8 @@ let preset = [
     { name: "Yogurt", price: 1.19, image: "./assets/yogurt.png" },
 ];
 
-let cartItemName = [];
-let cartItemPrice = [];
+let cart = [];
+
 
 // Render cards
 preset.forEach((item) => {
@@ -88,17 +89,3 @@ addProduct.addEventListener("click", () => {
     productNameInput.value = "";
     productPriceInput.value = "";
 });
-
-// Function to update the total price
-function updateTotalPrice(amount) {
-    totalPrice += amount;
-    totalPriceSpan.textContent = totalPrice.toFixed(2);
-}
-
-// Function to remove an item
-function removeItem(event) {
-    const item = event.target.closest("li");
-    const price = parseFloat(item.dataset.price);
-    updateTotalPrice(-price);
-    item.remove();
-}
