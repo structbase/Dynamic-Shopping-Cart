@@ -150,29 +150,31 @@ addProduct.addEventListener("click", () => {
     productPriceInput.value = "";
 });
 // Event Delegation for cartitem actions (+ / - / Remove)
-cartContainer.addEventListener("click", (e) => {
+document.addEventListener("click", (e) => {
     const target = e.target;
-    const cartItemDiv = target.closest(".cart-item"); // find the clicked cart row
-    if (!cartItemDiv) return; // click was outside cart items
+    // click inside of the cartitems only 
+    const cartItemDiv = target.closest(".cart-item");
+    if (!cartItemDiv) return;
 
     // gets clicked item and find in cart arry
     const name = cartItemDiv.dataset.name;
     const price = parseFloat(cartItemDiv.dataset.price);
-    const cartItem = cart.find(
+    let cartItem = cart.find(
         (item) => item.name === name && item.price === price
     );
 
-    // Decrease quantity
+    // no item found
+    if (!cartItem) return;
+
+    
     if (target.classList.contains("decrease")) {
-        if (cartItem.quantity > 1) {
-            cartItem.quantity--;
-        } else {
-            // if quantity = 1, confirm removal
-            if (confirm(`Remove ${cartItem.name} from cart?`)) {
-                cart = cart.filter(
-                    (item) => !(item.name === name && item.price === price)
-                );
-            }
+        cartItem.quantity--;
+
+        // quantity (1) and - button 
+        if (cartItem.quantity < 1) {
+            cart = cart.filter(
+                (item) => !(item.name === name && item.price === price)
+            );
         }
         renderCart();
     }
