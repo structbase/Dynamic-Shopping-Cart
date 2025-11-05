@@ -31,28 +31,33 @@ By completing this project, I was able to:
 ## 🧩 Project Structure
 
 ```
-.
-├── assets
-│   ├── apples.png
-│   ├── avocado.png
-│   ├── broccoli.png
-│   ├── butter.png
-│   ├── carrots.png
-│   ├── cheese.png
-│   ├── eggs.png
-│   ├── grapes.png
-│   ├── milk.png
-│   ├── onion.png
-│   ├── oranges.png
-│   ├── peach.png
-│   ├── peppers.png
-│   ├── potato.png
-│   ├── strawberries.png
-│   ├── tomatoe.png
-│   └── yogurt.png
-├── index.html
-├── index.js
-└── style.css
+    .
+    ├── README.md
+    ├── assets
+    │   ├── apples.png
+    │   ├── avocado.png
+    │   ├── broccoli.png
+    │   ├── butter.png
+    │   ├── carrots.png
+    │   ├── cheese.png
+    │   ├── eggs.png
+    │   ├── grapes.png
+    │   ├── milk.png
+    │   ├── onion.png
+    │   ├── oranges.png
+    │   ├── peach.png
+    │   ├── peppers.png
+    │   ├── potato.png
+    │   ├── strawberries.png
+    │   ├── tomatoe.png
+    │   └── yogurt.png
+    ├── index.html
+    ├── index.js
+    ├── screenshots
+    │   ├── desktop-preview.png
+    │   ├── mobile-preview-cart.png
+    │   └── mobile-preview.png
+    └── style.css
 ```
 
 ---
