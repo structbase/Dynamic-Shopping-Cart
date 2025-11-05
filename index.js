@@ -33,11 +33,11 @@ function renderCartItem(item) {
             data-name="${item.name}" 
             data-price="${item.price}">
             
-            <div class="col-5">
+            <div class="col-4">
                 <h6 class="mb-0 text-truncate">${item.name}</h6>
             </div>
 
-            <div class="col-3">
+            <div class="col-4">
                 <div class="input-group input-group-sm">
                     <button class="btn btn-outline-secondary decrease" type="button">-</button>
                     <input
@@ -142,4 +142,46 @@ addProduct.addEventListener("click", () => {
     // Clear inputs
     productNameInput.value = "";
     productPriceInput.value = "";
+});
+// Event Delegation for cartitem actions (+ / - / Remove)
+cartContainer.addEventListener("click", (e) => {
+    const target = e.target;
+    const cartItemDiv = target.closest(".cart-item"); // find the clicked cart row
+    if (!cartItemDiv) return; // click was outside cart items
+
+    // gets clicked item and find in cart arry
+    const name = cartItemDiv.dataset.name;
+    const price = parseFloat(cartItemDiv.dataset.price);
+    const cartItem = cart.find(
+        (item) => item.name === name && item.price === price
+    );
+
+    // Decrease quantity
+    if (target.classList.contains("decrease")) {
+        if (cartItem.quantity > 1) {
+            cartItem.quantity--;
+        } else {
+            // if quantity = 1, confirm removal
+            if (confirm(`Remove ${cartItem.name} from cart?`)) {
+                cart = cart.filter(
+                    (item) => !(item.name === name && item.price === price)
+                );
+            }
+        }
+        renderCart();
+    }
+
+    // Increase quantity
+    if (target.classList.contains("increase")) {
+        cartItem.quantity++;
+        renderCart();
+    }
+
+    // Remove item
+    if (target.classList.contains("remove") || target.closest(".remove")) {
+        cart = cart.filter(
+            (item) => !(item.name === name && item.price === price)
+        );
+        renderCart();
+    }
 });
