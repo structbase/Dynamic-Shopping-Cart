@@ -63,6 +63,8 @@ function renderCartItem(item) {
     `;
 
     cartContainer.innerHTML += cartItemHTML;
+    updateCartSummary();
+
 }
 
 function renderCart() {
@@ -185,3 +187,19 @@ cartContainer.addEventListener("click", (e) => {
         renderCart();
     }
 });
+
+function updateCartSummary() {
+    const subtotal = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+    );
+    const taxRate = 0.1; // 10% tax (you can change this)
+    const tax = subtotal * taxRate;
+    const total = subtotal + tax;
+
+    document.getElementById("cart-subtotal").textContent = `$${subtotal.toFixed(
+        2
+    )}`;
+    document.getElementById("cart-tax").textContent = `$${tax.toFixed(2)}`;
+    document.getElementById("cart-total").textContent = `$${total.toFixed(2)}`;
+}
