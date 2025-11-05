@@ -21,7 +21,7 @@ let preset = [
     { name: "Yogurt", price: 1.19, image: "./assets/yogurt.png" },
 ];
 
-
+// Render cards
 preset.forEach((item) => {
     const cardHTML = `
         <div class="card" style="width: 10rem;">
@@ -34,12 +34,27 @@ preset.forEach((item) => {
             <div class="card-body text-center">
                 <h5 class="card-title">${item.name}</h5>
                 <p class="card-text">Price: $${item.price.toFixed(2)}</p>
-                <a href="#" class="btn btn-primary btn-sm">Add to cart</a>
+                <a href="#" 
+                    class="btn btn-primary btn-sm add-to-cart" 
+                    data-name="${item.name}" 
+                    data-price="${item.price}">
+                    Add to cart
+                </a>
             </div>
         </div>
     `;
-
     cardContainer.innerHTML += cardHTML;
+});
+// cardContainer event delegation on the parent div
+cardContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("add-to-cart")) {
+        e.preventDefault(); // stop page jump from href="#"
+
+        const name = e.target.dataset.name;
+        const price = parseFloat(e.target.dataset.price);
+
+        console.log(`Added to cart: ${name}  $${price.toFixed(2)}`);
+    }
 });
 
 // Function to update the total price
